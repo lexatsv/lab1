@@ -1,7 +1,7 @@
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 public final class Calculator {
-    public static String title() { return "Калькулятор"; }
+    public static String title() { return "Арифметика"; }
     public static BigDecimal calculate(BigDecimal a,String operation,BigDecimal b) {
         return switch(operation) {
             case "+" -> a.add(b);
