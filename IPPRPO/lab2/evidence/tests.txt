@@ -1,0 +1,2 @@
+$ D:\IntelliJ IDEA 2026.2.3\jbr\bin\java.exe -Dstdout.encoding=UTF-8 -cp out SmokeTest
+Проверок: 9; ошибок: 0

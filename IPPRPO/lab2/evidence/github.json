@@ -1,0 +1,7 @@
+{
+  "repository": "https://github.com/lexatsv/lab1",
+  "branch": "codex/lab2-git-practice",
+  "pr_url": "https://github.com/lexatsv/lab1/pull/2",
+  "number": 2,
+  "review_description": "Локальный просмотр кода выполнен; результаты находятся в project/REVIEW.md. Pull Request оставлен открытым без слияния."
+}

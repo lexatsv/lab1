@@ -1,0 +1,333 @@
+$ git init -b main
+Initialized empty Git repository in D:/test/lab1i/laboratories/IPPRPO/lab2/project/.git/
+
+$ git add .
+
+$ git commit -m Создан Java-проект и добавлено приветствие
+[main (root-commit) 7000169] Создан Java-проект и добавлено приветствие
+ 5 files changed, 13 insertions(+)
+ create mode 100644 .gitignore
+ create mode 100644 README.md
+ create mode 100644 resources/messages.txt
+ create mode 100644 src/HelloWorld.java
+ create mode 100644 src/Main.java
+
+$ git switch -c feature/primes
+Switched to a new branch 'feature/primes'
+
+$ git add .
+
+$ git commit -m Добавлено решето для поиска простых чисел
+[feature/primes ea780ea] Добавлено решето для поиска простых чисел
+ 1 file changed, 14 insertions(+)
+ create mode 100644 src/Primes.java
+
+$ git add .
+
+$ git commit -m Подключён вывод простых чисел до 28
+[feature/primes 97683c0] Подключён вывод простых чисел до 28
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+$ git switch main
+Switched to branch 'main'
+
+$ git switch -c feature/calculator
+Switched to a new branch 'feature/calculator'
+
+$ git add .
+
+$ git commit -m Добавлены четыре арифметические операции
+[feature/calculator 4dc3e89] Добавлены четыре арифметические операции
+ 1 file changed, 17 insertions(+)
+ create mode 100644 src/Calculator.java
+
+$ git add .
+
+$ git commit -m Подключён калькулятор к точке входа
+[feature/calculator f7b3d79] Подключён калькулятор к точке входа
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+$ git rebase main
+Current branch feature/calculator is up to date.
+
+$ git switch main
+Switched to branch 'main'
+
+$ git merge --no-ff feature/primes -m Подключена задача поиска простых чисел
+Merge made by the 'ort' strategy.
+ src/Main.java   |  2 +-
+ src/Primes.java | 14 ++++++++++++++
+ 2 files changed, 15 insertions(+), 1 deletion(-)
+ create mode 100644 src/Primes.java
+
+$ git merge --no-ff feature/calculator
+Auto-merging src/Main.java
+CONFLICT (content): Merge conflict in src/Main.java
+Automatic merge failed; fix conflicts and then commit the result.
+
+Конфликт разных задач: обе ветки изменили Main.java. Сохранены оба сценария.
+
+$ git add .
+
+$ git commit -m Разрешён конфликт задач в Main, сохранены оба вызова
+[main 2372547] Разрешён конфликт задач в Main, сохранены оба вызова
+
+$ git switch -c feature/calculator-title
+Switched to a new branch 'feature/calculator-title'
+
+$ git add .
+
+$ git commit -m Изменено название калькулятора в отдельной ветке
+[feature/calculator-title 7def7c8] Изменено название калькулятора в отдельной ветке
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+$ git switch main
+Switched to branch 'main'
+
+$ git add .
+
+$ git commit -m Уточнено название в основной ветке
+[main f111b31] Уточнено название в основной ветке
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+$ git merge feature/calculator-title
+Auto-merging src/Calculator.java
+CONFLICT (content): Merge conflict in src/Calculator.java
+Automatic merge failed; fix conflicts and then commit the result.
+
+Конфликт одной задачи: две правки метода Calculator.title. Выбрано полное название.
+
+$ git add .
+
+$ git commit -m Разрешён конфликт названия калькулятора
+[main 5a8e013] Разрешён конфликт названия калькулятора
+
+$ git switch -c feature/palindrome
+Switched to a new branch 'feature/palindrome'
+
+$ git add .
+
+$ git commit -m Добавлена проверка палиндрома без учёта регистра и пробелов
+[feature/palindrome 2867fbf] Добавлена проверка палиндрома без учёта регистра и пробелов
+ 1 file changed, 9 insertions(+)
+ create mode 100644 src/Palindrome.java
+
+$ git rebase main
+Current branch feature/palindrome is up to date.
+
+$ git switch main
+Switched to branch 'main'
+
+$ git merge --no-ff feature/palindrome -m Подключена проверка палиндрома
+Merge made by the 'ort' strategy.
+ src/Palindrome.java | 9 +++++++++
+ 1 file changed, 9 insertions(+)
+ create mode 100644 src/Palindrome.java
+
+$ git switch -c feature/temperature
+Switched to a new branch 'feature/temperature'
+
+$ git add .
+
+$ git commit -m Добавлен перевод температур в обе стороны
+[feature/temperature 165e405] Добавлен перевод температур в обе стороны
+ 1 file changed, 7 insertions(+)
+ create mode 100644 src/Temperature.java
+
+$ git rebase main
+Current branch feature/temperature is up to date.
+
+$ git switch main
+Switched to branch 'main'
+
+$ git merge --no-ff feature/temperature -m Подключён конвертер температур
+Merge made by the 'ort' strategy.
+ src/Temperature.java | 7 +++++++
+ 1 file changed, 7 insertions(+)
+ create mode 100644 src/Temperature.java
+
+$ git switch -c feature/messages
+Switched to a new branch 'feature/messages'
+
+$ git add .
+
+$ git commit -m Изменён текст ресурса в ветке
+[feature/messages 9ef16c8] Изменён текст ресурса в ветке
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+$ git switch main
+Switched to branch 'main'
+
+$ git add .
+
+$ git commit -m Уточнён заголовок ресурса в main
+[main e4d50f9] Уточнён заголовок ресурса в main
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+$ git merge feature/messages
+Auto-merging resources/messages.txt
+CONFLICT (content): Merge conflict in resources/messages.txt
+Automatic merge failed; fix conflicts and then commit the result.
+
+$ git add .
+
+$ git commit -m Разрешён конфликт текстового ресурса
+[main fa7c1a1] Разрешён конфликт текстового ресурса
+
+$ git stash push -m Инструкция запуска
+Saved working directory and index state On main: Инструкция запуска
+
+$ git status --short
+
+$ git stash pop
+On branch main
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+	modified:   README.md
+
+no changes added to commit (use "git add" and/or "git commit -a")
+Dropped refs/stash@{0} (128eda6dd5441c5c976d1d8bf228c89459629db7)
+
+$ git add .
+
+$ git commit -m Дополнено описание запуска после stash
+[main bed18a9] Дополнено описание запуска после stash
+ 1 file changed, 2 insertions(+)
+
+$ git switch -c bugfix/temperature-validation
+Switched to a new branch 'bugfix/temperature-validation'
+
+$ git add .
+
+$ git commit -m Проверена нижняя физическая граница температуры
+[bugfix/temperature-validation 210f097] Проверена нижняя физическая граница температуры
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+$ git switch main
+Switched to branch 'main'
+
+$ git add .
+
+$ git commit -m Уточнён формат числовых результатов
+[main 17f3efc] Уточнён формат числовых результатов
+ 1 file changed, 2 insertions(+)
+
+$ git switch bugfix/temperature-validation
+Switched to branch 'bugfix/temperature-validation'
+
+$ git rebase main
+Rebasing (1/1)
+Successfully rebased and updated refs/heads/bugfix/temperature-validation.
+
+$ git rev-parse HEAD
+9ea0d7f8cf16ea01ae11607fa7168b7d90bf31bd
+
+$ git switch main
+Switched to branch 'main'
+
+$ git cherry-pick 9ea0d7f8cf16ea01ae11607fa7168b7d90bf31bd
+[main 9ea0d7f] Проверена нижняя физическая граница температуры
+ Date: Thu Oct 29 17:52:10 2026 +0300
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+$ git add .
+
+$ git commit -m Добавлена пробная подсказка
+[main 82bfe33] Добавлена пробная подсказка
+ 1 file changed, 1 insertion(+)
+ create mode 100644 resources/temporary.txt
+
+$ git revert --no-edit HEAD
+[main aaf9d47] Revert "Добавлена пробная подсказка"
+ Date: Thu Oct 29 17:52:11 2026 +0300
+ 1 file changed, 1 deletion(-)
+ delete mode 100644 resources/temporary.txt
+
+$ git add .
+
+$ git commit -m Объединены четыре задачи в меню и добавлены девять проверок
+[main 47155d1] Объединены четыре задачи в меню и добавлены девять проверок
+ 3 files changed, 61 insertions(+), 7 deletions(-)
+ create mode 100644 tests/SmokeTest.java
+
+$ git add .
+
+$ git commit -m Записаны результаты просмотра кода
+[main 2c74871] Записаны результаты просмотра кода
+ 1 file changed, 7 insertions(+)
+ create mode 100644 REVIEW.md
+
+$ git init --bare --initial-branch=main D:\test\lab1i\laboratories\IPPRPO\lab2\remote.git
+Initialized empty Git repository in D:/test/lab1i/laboratories/IPPRPO/lab2/remote.git/
+
+$ git remote add origin ../remote.git
+
+$ git push -u origin main
+branch 'main' set up to track 'origin/main'.
+To ../remote.git
+ * [new branch]      main -> main
+
+$ git push origin --all
+To ../remote.git
+ * [new branch]      bugfix/temperature-validation -> bugfix/temperature-validation
+ * [new branch]      feature/calculator -> feature/calculator
+ * [new branch]      feature/calculator-title -> feature/calculator-title
+ * [new branch]      feature/messages -> feature/messages
+ * [new branch]      feature/palindrome -> feature/palindrome
+ * [new branch]      feature/primes -> feature/primes
+ * [new branch]      feature/temperature -> feature/temperature
+
+$ git clone D:\test\lab1i\laboratories\IPPRPO\lab2\remote.git D:\test\lab1i\.work\lab234\git-peer
+Cloning into 'D:\test\lab1i\.work\lab234\git-peer'...
+done.
+
+$ git fetch origin
+
+$ git pull --rebase origin main
+Already up to date.
+From ../remote
+ * branch            main       -> FETCH_HEAD
+
+$ git log --all --oneline --graph
+* 2c74871 Записаны результаты просмотра кода
+* 47155d1 Объединены четыре задачи в меню и добавлены девять проверок
+* aaf9d47 Revert "Добавлена пробная подсказка"
+* 82bfe33 Добавлена пробная подсказка
+* 9ea0d7f Проверена нижняя физическая граница температуры
+* 17f3efc Уточнён формат числовых результатов
+* bed18a9 Дополнено описание запуска после stash
+*   fa7c1a1 Разрешён конфликт текстового ресурса
+|\  
+| * 9ef16c8 Изменён текст ресурса в ветке
+* | e4d50f9 Уточнён заголовок ресурса в main
+|/  
+*   9d18e42 Подключён конвертер температур
+|\  
+| * 165e405 Добавлен перевод температур в обе стороны
+|/  
+*   2ab4244 Подключена проверка палиндрома
+|\  
+| * 2867fbf Добавлена проверка палиндрома без учёта регистра и пробелов
+|/  
+*   5a8e013 Разрешён конфликт названия калькулятора
+|\  
+| * 7def7c8 Изменено название калькулятора в отдельной ветке
+* | f111b31 Уточнено название в основной ветке
+|/  
+*   2372547 Разрешён конфликт задач в Main, сохранены оба вызова
+|\  
+| * f7b3d79 Подключён калькулятор к точке входа
+| * 4dc3e89 Добавлены четыре арифметические операции
+* |   c68cdc8 Подключена задача поиска простых чисел
+|\ \  
+| |/  
+|/|   
+| * 97683c0 Подключён вывод простых чисел до 28
+| * ea780ea Добавлено решето для поиска простых чисел
+|/  
+* 7000169 Создан Java-проект и добавлено приветствие
+
+$ git status --short
+
+$ git bundle create D:\test\lab1i\laboratories\IPPRPO\lab2\repository.bundle --all
