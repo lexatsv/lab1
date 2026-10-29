@@ -12,4 +12,5 @@ git log --all --oneline --graph
 rebase, cherry-pick, stash и revert. Даты коммитов соответствуют выполненному запуску.
 В resources лежит пример разрешённого конфликта ресурса. Журнал команд — ../evidence/git-session.txt.
 Локальный bare remote ../remote.git демонстрирует push/fetch/pull/clone без аккаунта.
-GitHub/GitLab Pull Request оформляется отдельно в вашем аккаунте; локальный remote его не создаёт.
+GitHub Pull Request: https://github.com/lexatsv/lab1/pull/2
+Ветка публикации codex/lab2-git-practice сохраняет исходные файлы GitHub и добавляет IPPRPO/lab2.
